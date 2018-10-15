@@ -191,6 +191,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20181015014411_DatabaseInit.cs" />
+    <Compile Include="Migrations\20181015014411_DatabaseInit.designer.cs">
+      <DependentUpon>20181015014411_DatabaseInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20181015015333_CreateTableUsuario.cs" />
+    <Compile Include="Migrations\20181015015333_CreateTableUsuario.designer.cs">
+      <DependentUpon>20181015015333_CreateTableUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\EntidadeContextModelSnapshot.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,7 +217,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="BLL\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
