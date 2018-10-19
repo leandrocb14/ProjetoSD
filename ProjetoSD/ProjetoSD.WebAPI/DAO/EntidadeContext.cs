@@ -10,7 +10,7 @@ namespace ProjetoSD.WebAPI.DAO
     public class EntidadeContext : DbContext
     {
 
-        private string StringConnectionSqlServer = string.Format(@"Server=DESKTOP-R3HGIEK;Database=ProjetoSD;User Id=sa;
+        private string StringConnectionSqlServer = string.Format(@"Server=DESKTOP-FORDN6B;Database=ProjetoSD;User Id=sa;
 Password=@Leandro123;");
 
         public DbSet<Usuario> Usuarios { get; set; }
