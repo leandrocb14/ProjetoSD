@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoSD.Mobile.View;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,13 +11,24 @@ namespace ProjetoSD.Mobile
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new LoginView();
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
+            MessagingCenter.Subscribe<string>(this, "EntrarCommand", (msg) =>
+            {
+
+            });
+            MessagingCenter.Subscribe<string>(this, "CadastrarCommand", (msg) =>
+            {
+                MainPage = new CadastrarView();
+            });
+            MessagingCenter.Subscribe<string>(this, "GoToLogin", (msg) =>
+            {
+                MainPage = new LoginView();
+            });
         }
 
         protected override void OnSleep()

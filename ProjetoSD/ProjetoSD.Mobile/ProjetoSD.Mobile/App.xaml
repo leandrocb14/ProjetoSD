@@ -3,6 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoSD.Mobile.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style x:Key="backgroundConfig" TargetType="ContentPage">
+                <Setter Property="BackgroundImage" Value="medical.jpg"></Setter>
+            </Style>
+            <Style x:Key="buttonsConfig" TargetType="Button">
+                <Setter Property="BorderRadius" Value="10"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+            </Style>
+            <Style x:Key="entryConfig" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="White"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+            </Style>
+            <Style x:Key="labelTitleConfig" TargetType="Label">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

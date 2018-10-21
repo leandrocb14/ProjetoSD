@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Style="{StaticResource backgroundConfig}"
+             x:Class="ProjetoSD.Mobile.View.LoginView">
+    <Frame BackgroundColor="Black" Opacity="0.6" VerticalOptions="Center" Margin="25, 0, 25, 0" Padding="0, 30, 0, 30" CornerRadius="20">
+        <StackLayout Orientation="Vertical" >
+            <Label Text="Catálogo Médico" Style="{StaticResource labelTitleConfig}"></Label>
+            <StackLayout Margin="15, 10, 15, 20">
+                <Entry MaxLength="60" Keyboard="Email" Placeholder="Email" Style="{StaticResource entryConfig}"></Entry>
+                <Entry MaxLength="25" Keyboard="Text"  Placeholder="Senha" IsPassword="True" Style="{StaticResource entryConfig}"></Entry>
+            </StackLayout>
+            <StackLayout VerticalOptions="End" Margin="20, 0, 20, 15">
+                <Button Text="Entrar" Command="{Binding EntrarCommand}" Style="{StaticResource buttonsConfig}" Margin="0, 0, 0, 10"></Button>
+                <Button Text="Cadastrar" Command="{Binding CadastrarCommand}" Style="{StaticResource buttonsConfig}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</ContentPage>

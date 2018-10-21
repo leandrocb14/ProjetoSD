@@ -13,10 +13,5 @@ namespace ProjetoSD.WebAPI.Models
         public string Senha { get; set; }
         public TipoStatus TipoStatus { get; set; }
 
-    }
-    
-    public enum TipoStatus
-    {
-        N, S
-    }
+    }   
 }

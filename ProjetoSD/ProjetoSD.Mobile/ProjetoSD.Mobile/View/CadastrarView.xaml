@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Style="{StaticResource backgroundConfig}"
+             x:Class="ProjetoSD.Mobile.View.CadastrarView">
+    <Frame BackgroundColor="Black" Opacity="0.6" VerticalOptions="Center" Margin="25, 0, 25, 0" Padding="0, 30, 0, 30" CornerRadius="20">
+        <ScrollView>
+            <StackLayout VerticalOptions="Center">
+                <Label Text="Cadastro" Style="{StaticResource labelTitleConfig}"></Label>
+                <StackLayout Margin="15, 10, 15, 20">
+                    <StackLayout Orientation="Horizontal">
+                        <Entry Placeholder="CRM" Style="{StaticResource entryConfig}" HorizontalOptions="FillAndExpand" MaxLength="10"></Entry>
+                        <Button Text="Pesquisar" HorizontalOptions="End" Style="{StaticResource buttonsConfig}"></Button>
+                    </StackLayout>
+                    <StackLayout>
+                        <Entry Placeholder="Nome" Keyboard="Text" Style="{StaticResource entryConfig}" MaxLength="90"></Entry>
+                        <Picker Title="UF" TextColor="White" ItemsSource="{Binding ListarUFs}"></Picker>
+                        <Entry Placeholder="Profissão" Keyboard="Text" Style="{StaticResource entryConfig}" MaxLength="90"></Entry>
+                    </StackLayout>
+                    <StackLayout>
+                        <Entry Placeholder="Email" Keyboard="Text" Style="{StaticResource entryConfig}" MaxLength="60"></Entry>
+                        <Entry Placeholder="Senha" IsPassword="True" Keyboard="Text" Style="{StaticResource entryConfig}" MaxLength="25"></Entry>
+                        <Entry Placeholder="Confirmar Senha" IsPassword="True" Keyboard="Text" Style="{StaticResource entryConfig}" MaxLength="25"></Entry>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Margin="20, 0, 20, 15">
+                    <Button Text="Cadastrar" Command="{Binding CadastrarContaCommand}" Style="{StaticResource buttonsConfig}" Margin="0, 0, 0, 10"></Button>
+                    <Button Text="Voltar" Command="{Binding VoltarLoginCommand}" Style="{StaticResource buttonsConfig}"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Frame>
+</ContentPage>

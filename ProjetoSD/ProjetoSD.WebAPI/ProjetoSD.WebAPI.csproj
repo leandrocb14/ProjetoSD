@@ -202,7 +202,14 @@
     <Compile Include="Migrations\20181015015333_CreateTableUsuario.designer.cs">
       <DependentUpon>20181015015333_CreateTableUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20181021003530_CreateTableMedico.cs" />
+    <Compile Include="Migrations\20181021003530_CreateTableMedico.designer.cs">
+      <DependentUpon>20181021003530_CreateTableMedico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\EntidadeContextModelSnapshot.cs" />
+    <Compile Include="Models\Medico.cs" />
+    <Compile Include="Models\TipoStatus.cs" />
+    <Compile Include="Models\UF.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
