@@ -14,7 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="View\CadastrarView.xaml">
+    <EmbeddedResource Update="View\AlterarDadosContaView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\CadastrarContaView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\CadastrarDoencaView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\DetailView.xaml">
@@ -33,5 +39,14 @@
 
   <ItemGroup>
     <Folder Include="DAO\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="View\AlterarDadosContaView.xaml.cs">
+      <DependentUpon>AlterarDadosContaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\CadastrarContaView.xaml.cs">
+      <DependentUpon>CadastrarContaView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

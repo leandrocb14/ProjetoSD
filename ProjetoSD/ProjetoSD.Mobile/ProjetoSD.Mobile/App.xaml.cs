@@ -21,9 +21,9 @@ namespace ProjetoSD.Mobile
             {
                 MainPage = new MasterDetailView();
             });
-            MessagingCenter.Subscribe<string>(this, "CadastrarCommand", (msg) =>
+            MessagingCenter.Subscribe<string>(this, "CadastrarContaCommand", (msg) =>
             {
-                MainPage = new CadastrarView();
+                MainPage = new CadastrarContaView();
             });
             MessagingCenter.Subscribe<string>(this, "GoToLogin", (msg) =>
             {

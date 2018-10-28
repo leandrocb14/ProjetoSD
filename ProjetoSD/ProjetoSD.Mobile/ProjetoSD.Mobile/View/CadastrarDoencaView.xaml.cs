@@ -11,12 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace ProjetoSD.Mobile.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MasterView : ContentPage
+	public partial class CadastrarDoencaView : ContentPage
 	{
-		public MasterView ()
+		public CadastrarDoencaView ()
 		{
-            this.BindingContext = new MasterViewModel();            
+            this.BindingContext = new CadastrarDoencaViewModel();
 			InitializeComponent ();
-		}        
-    }
+		}
+	}
 }

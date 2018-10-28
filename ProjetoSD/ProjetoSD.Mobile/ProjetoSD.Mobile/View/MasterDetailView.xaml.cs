@@ -18,5 +18,14 @@ namespace ProjetoSD.Mobile.View
             this.BindingContext = new MasterDetailViewModel();
 			InitializeComponent ();
 		}
-	}
+
+        protected override void OnAppearing()
+        {              
+            base.OnAppearing();
+            MessagingCenter.Subscribe<string>(this, "MasterDescollapse", (msg) =>
+            {
+                IsPresented = false;                           
+            });
+        }
+    }
 }

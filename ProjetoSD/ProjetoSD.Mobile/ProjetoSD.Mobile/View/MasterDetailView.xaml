@@ -10,7 +10,7 @@
         <NavigationPage>
             <x:Arguments>
                 <vw:DetailView></vw:DetailView>
-            </x:Arguments>            
-        </NavigationPage>        
-    </MasterDetailPage.Detail>    
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
 </MasterDetailPage>

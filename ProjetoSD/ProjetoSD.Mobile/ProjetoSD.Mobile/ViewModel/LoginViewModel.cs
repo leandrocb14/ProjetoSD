@@ -10,7 +10,7 @@ namespace ProjetoSD.Mobile.ViewModel
     {
 
         public ICommand EntrarCommand { get; set; }
-        public ICommand CadastrarCommand { get; set; }
+        public ICommand CadastrarContaCommand { get; set; }
 
         public LoginViewModel()
         {
@@ -18,9 +18,9 @@ namespace ProjetoSD.Mobile.ViewModel
             {
                 MessagingCenter.Send<string>("", "EntrarCommand");
             });
-            this.CadastrarCommand = new Command(() =>
+            this.CadastrarContaCommand = new Command(() =>
             {
-                MessagingCenter.Send<string>("", "CadastrarCommand");
+                MessagingCenter.Send<string>("", "CadastrarContaCommand");
             });
         }
     }

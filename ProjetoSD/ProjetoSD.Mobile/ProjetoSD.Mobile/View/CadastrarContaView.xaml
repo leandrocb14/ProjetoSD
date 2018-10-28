@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:cc="clr-namespace:ProjetoSD.Mobile.CustomComponent"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              Style="{StaticResource backgroundConfig}"
-             x:Class="ProjetoSD.Mobile.View.CadastrarView">
+             x:Class="ProjetoSD.Mobile.View.CadastrarContaView">
     <Frame BackgroundColor="Black" Opacity="0.6" VerticalOptions="Center" Margin="25, 0, 25, 0" Padding="0, 30, 0, 30" CornerRadius="20">
         <ScrollView>
             <StackLayout VerticalOptions="Center">
                 <Label Text="Cadastro" Style="{StaticResource labelTitleConfig}"></Label>
                 <StackLayout Margin="15, 10, 15, 20">
                     <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="CRM" Style="{StaticResource entryConfig}" HorizontalOptions="FillAndExpand" MaxLength="10"></Entry>
+                        <Entry Placeholder="CRM" Keyboard="Numeric" Style="{StaticResource entryConfig}" HorizontalOptions="FillAndExpand" MaxLength="10"></Entry>
                         <Button Text="Pesquisar" HorizontalOptions="End" Style="{StaticResource buttonsConfig}"></Button>
                     </StackLayout>
                     <StackLayout>

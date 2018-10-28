@@ -12,7 +12,7 @@
             </StackLayout>
             <StackLayout VerticalOptions="End" Margin="20, 0, 20, 15">
                 <Button Text="Entrar" Command="{Binding EntrarCommand}" Style="{StaticResource buttonsConfig}" Margin="0, 0, 0, 10"></Button>
-                <Button Text="Cadastrar" Command="{Binding CadastrarCommand}" Style="{StaticResource buttonsConfig}"></Button>
+                <Button Text="Cadastrar" Command="{Binding CadastrarContaCommand}" Style="{StaticResource buttonsConfig}"></Button>
             </StackLayout>
         </StackLayout>
     </Frame>

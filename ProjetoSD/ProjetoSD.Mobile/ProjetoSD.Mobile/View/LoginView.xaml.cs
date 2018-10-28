@@ -22,7 +22,7 @@ namespace ProjetoSD.Mobile.View
         protected override void OnDisappearing()
         {
             MessagingCenter.Unsubscribe<string>(this, "EntrarCommand");
-            MessagingCenter.Unsubscribe<string>(this, "CadastrarCommand");
+            MessagingCenter.Unsubscribe<string>(this, "CadastrarContaCommand");
             base.OnDisappearing();
         }
     }

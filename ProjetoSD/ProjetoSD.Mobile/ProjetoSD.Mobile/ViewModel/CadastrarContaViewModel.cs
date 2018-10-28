@@ -8,21 +8,21 @@ using Xamarin.Forms;
 
 namespace ProjetoSD.Mobile.ViewModel
 {
-    public class CadastrarViewModel
+    public class CadastrarMedicoViewModel
     {
 
-        private CadastrarBLL CadastrarBLL { get; set; }
-        public ICommand CadastrarContaCommand { get; set; }
+        private UFBLL UFBLL { get; set; }
+        public ICommand EfetuarCadastrarContaCommand { get; set; }
         public ICommand VoltarLoginCommand { get; set; }
 
-        public List<string> ListarUFs { get { return this.CadastrarBLL.ListarUFs(); } }
+        public List<string> ListarUFs { get { return this.UFBLL.ListarUFs(); } }
 
-        public CadastrarViewModel()
+        public CadastrarMedicoViewModel()
         {
-            this.CadastrarBLL = new CadastrarBLL();
-            this.CadastrarContaCommand = new Command(() =>
+            this.UFBLL = new UFBLL();
+            this.EfetuarCadastrarContaCommand = new Command(() =>
             {
-                MessagingCenter.Send<string>("", "CadastrarContaCommand");
+                MessagingCenter.Send<string>("", "EfetuarCadastroContaCommand");
             });
             this.VoltarLoginCommand = new Command(() =>
             {

@@ -11,17 +11,17 @@ using Xamarin.Forms.Xaml;
 namespace ProjetoSD.Mobile.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CadastrarView : ContentPage
+	public partial class CadastrarContaView : ContentPage
 	{
-		public CadastrarView ()
+		public CadastrarContaView ()
 		{
-            this.BindingContext = new CadastrarViewModel();            
+            this.BindingContext = new CadastrarMedicoViewModel();            
 			InitializeComponent ();
 		}
 
         protected override void OnDisappearing()
         {
-            MessagingCenter.Unsubscribe<string>(this, "CadastrarContaCommand");
+            MessagingCenter.Unsubscribe<string>(this, "EfetuarCadastroContaCommand");
             MessagingCenter.Unsubscribe<string>(this, "GoToLogin");
             base.OnDisappearing();
         }
