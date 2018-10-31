@@ -4,11 +4,34 @@
              Style="{StaticResource backgroundConfig}"
              Title="Cadastro de doenças"
              x:Class="ProjetoSD.Mobile.View.CadastrarDoencaView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <Frame BackgroundColor="Black" Opacity="0.6" VerticalOptions="Center" Margin="25, 0, 25, 0" Padding="0, 30, 0, 30" CornerRadius="20">
+        <ScrollView>
+            <StackLayout VerticalOptions="Center" Margin="15, 10, 15, 20">
+                <StackLayout Margin="0, 0, 0, 15">
+                    <Entry Placeholder="Nome da doença" Style="{StaticResource entryConfig}"></Entry>
+                    <StackLayout>
+                        <Label Text="O que é?" Style="{StaticResource labelConfig}"></Label>
+                        <Frame Style="{StaticResource frameInternalConfig}">
+                            <Editor Style="{StaticResource editorConfig}"></Editor>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Tratamento" Style="{StaticResource labelConfig}"></Label>
+                        <Frame Style="{StaticResource frameInternalConfig}">
+                            <Editor Style="{StaticResource editorConfig}"></Editor>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Evite" Style="{StaticResource labelConfig}"></Label>
+                        <Frame Style="{StaticResource frameInternalConfig}">
+                            <Editor Style="{StaticResource editorConfig}"></Editor>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <Button Text="Cadastrar" Style="{StaticResource buttonsConfig}"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Frame>
 </ContentPage>

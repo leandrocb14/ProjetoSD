@@ -14,12 +14,12 @@ using ProjetoSD.Mobile.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer (typeof(Entry), typeof(EntryCustomPicker))]
+[assembly: ExportRenderer (typeof(Entry), typeof(EntryCustomRenderer))]
 namespace ProjetoSD.Mobile.Droid
 {
-    public class EntryCustomPicker : EntryRenderer
+    public class EntryCustomRenderer : EntryRenderer
     {
-        public EntryCustomPicker(Context context) : base(context)
+        public EntryCustomRenderer(Context context) : base(context)
         {
         }
 

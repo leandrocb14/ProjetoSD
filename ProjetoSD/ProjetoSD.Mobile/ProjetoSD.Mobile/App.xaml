@@ -22,6 +22,20 @@
                 <Setter Property="FontSize" Value="25"></Setter>
                 <Setter Property="FontAttributes" Value="Bold"></Setter>
             </Style>
+            <Style x:Key="editorConfig" TargetType="Editor">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="Keyboard" Value="Text"></Setter>
+                <Setter Property="AutoSize" Value="TextChanges"></Setter>
+            </Style>
+            <Style x:Key="labelConfig" TargetType="Label">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="FontSize" Value="18"></Setter>
+            </Style>
+            <Style x:Key="frameInternalConfig" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Black"></Setter>
+                <Setter Property="BorderColor" Value="White"></Setter>                
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
