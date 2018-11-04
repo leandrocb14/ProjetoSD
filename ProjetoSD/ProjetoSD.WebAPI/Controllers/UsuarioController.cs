@@ -12,25 +12,11 @@ namespace ProjetoSD.WebAPI.Controllers
     public class UsuarioController : ApiController
     {
 
-        private UsuarioBLL UsuarioBLL;
+        private UsuarioMedicoBLL UsuarioBLL;
 
         public UsuarioController()
         {
-            this.UsuarioBLL = new UsuarioBLL();
-        }
-
-        [HttpGet]
-        public HttpResponseMessage GetUsuario(int id = 0)
-        {
-            try
-            {
-                Usuario Usuario = this.UsuarioBLL.BuscaUsuario(id);
-                return Request.CreateResponse(HttpStatusCode.OK, Usuario);
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex.Message);
-            }
+            this.UsuarioBLL = new UsuarioMedicoBLL();
         }
 
         [HttpGet]
@@ -38,8 +24,8 @@ namespace ProjetoSD.WebAPI.Controllers
         {
             try
             {
-                Usuario Usuario = this.UsuarioBLL.BuscaUsuario(email, senha);
-                return Request.CreateResponse(HttpStatusCode.OK, Usuario);
+                Medico Medico = this.UsuarioBLL.BuscaUsuarioMedico(email, senha);
+                return Request.CreateResponse(HttpStatusCode.OK, Medico);
             }
             catch (Exception ex)
             {
@@ -47,17 +33,17 @@ namespace ProjetoSD.WebAPI.Controllers
             }
         }
 
-        [HttpPut]
-        public HttpResponseMessage PutUsuario(int? id = 0, string senha = "", string novaSenha = "")
+        [HttpPost]
+        public HttpResponseMessage PostUsuario(string crm = "", string nome = "", UF uF = UF.AC, string profissao = "", string email = "", string senha = "")
         {
             try
             {
-                this.UsuarioBLL.AtualizaSenhaUsuario(id, senha, novaSenha);
-                return Request.CreateResponse(HttpStatusCode.OK);
+                this.UsuarioBLL.CadastraUsuario(crm, nome, uF, profissao, email, senha);
+                return Request.CreateResponse(HttpStatusCode.Created);
             }
             catch (Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
     }

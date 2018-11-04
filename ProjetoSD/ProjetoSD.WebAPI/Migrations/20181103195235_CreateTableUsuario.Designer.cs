@@ -10,7 +10,7 @@ using ProjetoSD.WebAPI.Models;
 namespace ProjetoSD.WebAPI.Migrations
 {
     [DbContext(typeof(EntidadeContext))]
-    [Migration("20181015015333_CreateTableUsuario")]
+    [Migration("20181103195235_CreateTableUsuario")]
     partial class CreateTableUsuario
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,12 +31,12 @@ namespace ProjetoSD.WebAPI.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnName("CUSUEMAIL")
-                        .HasMaxLength(60);
+                        .HasColumnType("VARCHAR(60)");
 
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnName("CUSUSENHA")
-                        .HasMaxLength(25);
+                        .HasColumnType("VARCHAR(25)");
 
                     b.Property<string>("TipoStatus")
                         .IsRequired()

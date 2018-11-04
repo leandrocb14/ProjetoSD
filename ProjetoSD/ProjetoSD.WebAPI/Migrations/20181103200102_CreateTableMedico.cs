@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjetoSD.WebAPI.Migrations
 {
@@ -10,14 +11,16 @@ namespace ProjetoSD.WebAPI.Migrations
                 name: "TMED",
                 columns: table => new
                 {
-                    CMEDCRM = table.Column<int>(nullable: false),
-                    CMEDNOME = table.Column<string>(maxLength: 90, nullable: false),
+                    CMEDID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CMEDCRM = table.Column<string>(type: "VARCHAR(10)", nullable: false),
+                    CMEDNOME = table.Column<string>(type: "VARCHAR(90)", nullable: false),
                     CMEDUF = table.Column<string>(nullable: false),
-                    CMEDPROFISSAO = table.Column<string>(maxLength: 90, nullable: true)
+                    CMEDPROFISSAO = table.Column<string>(type: "VARCHAR(90)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TMED", x => x.CMEDCRM);
+                    table.PrimaryKey("PK_TMED", x => x.CMEDID);
                 });
 
             migrationBuilder.CreateIndex(

@@ -13,5 +13,26 @@ namespace ProjetoSD.WebAPI.Models
         public string Senha { get; set; }
         public TipoStatus TipoStatus { get; set; }
 
-    }   
+        public Medico Medico { get; set; }
+
+        public Usuario()
+        {
+
+        }
+        public Usuario(string email, string senha)
+        {
+            Email = email;
+            Senha = senha;
+        }
+        public Usuario(string email, string senha, Medico medico) : this(email, senha)
+        {
+            this.Medico = medico;
+        }
+        public Usuario(int id, string email, TipoStatus tipoStatus)
+        {
+            this.Id = id;
+            this.Email = email;
+            this.TipoStatus = tipoStatus;
+        }
+    }
 }

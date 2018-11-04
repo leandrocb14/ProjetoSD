@@ -13,8 +13,8 @@ namespace ProjetoSD.WebAPI.Migrations
                 {
                     CUSUID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CUSUEMAIL = table.Column<string>(maxLength: 60, nullable: false),
-                    CUSUSENHA = table.Column<string>(maxLength: 25, nullable: false),
+                    CUSUEMAIL = table.Column<string>(type: "VARCHAR(60)", nullable: false),
+                    CUSUSENHA = table.Column<string>(type: "VARCHAR(25)", nullable: false),
                     CUSUTIPOSTATUS = table.Column<string>(nullable: false, defaultValue: "S")
                 },
                 constraints: table =>

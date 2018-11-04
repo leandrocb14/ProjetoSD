@@ -10,7 +10,7 @@ namespace ProjetoSD.WebAPI.DAO
     public class EntidadeContext : DbContext
     {
 
-        private string StringConnectionSqlServer = string.Format(@"Server=DESKTOP-FORDN6B;Database=ProjetoSD;User Id=sa;
+        private string StringConnectionSqlServer = string.Format(@"Server=DESKTOP-OH0QV0R;Database=ProjetoSD;User Id=sa;
 Password=@Leandro123;");
 
         public DbSet<Usuario> Usuarios { get; set; }
@@ -26,39 +26,53 @@ Password=@Leandro123;");
             #region Usuario - TUSU
             modelBuilder.Entity<Usuario>().ToTable("TUSU");
 
-            modelBuilder.Entity<Usuario>().Property(u => u.Id).HasColumnName("CUSUID");
+            modelBuilder.Entity<Usuario>(u =>
+            {
+                u.Property(cu => cu.Id).HasColumnName("CUSUID");
 
-            modelBuilder.Entity<Usuario>().Property(u => u.Email).HasColumnName("CUSUEMAIL");
-            modelBuilder.Entity<Usuario>().Property(u => u.Email).HasMaxLength(60);
-            modelBuilder.Entity<Usuario>().Property(u => u.Email).IsRequired();
+                u.Property(cu => cu.Email).HasColumnName("CUSUEMAIL");
+                u.Property(cu => cu.Email).HasColumnType("VARCHAR(60)");
+                u.Property(cu => cu.Email).IsRequired();
 
-            modelBuilder.Entity<Usuario>().Property(u => u.Senha).HasColumnName("CUSUSENHA");
-            modelBuilder.Entity<Usuario>().Property(u => u.Senha).HasMaxLength(25);
-            modelBuilder.Entity<Usuario>().Property(u => u.Senha).IsRequired();
+                u.Property(cu => cu.Senha).HasColumnName("CUSUSENHA");
+                u.Property(cu => cu.Senha).HasColumnType("VARCHAR(25)");
+                u.Property(cu => cu.Senha).IsRequired();
 
-            modelBuilder.Entity<Usuario>().Property(u => u.TipoStatus).HasColumnName("CUSUTIPOSTATUS");
-            modelBuilder.Entity<Usuario>().Property(u => u.TipoStatus).HasConversion(u => u.ToString(), u => (TipoStatus)Enum.Parse(typeof(TipoStatus), u));
-            modelBuilder.Entity<Usuario>().Property(u => u.TipoStatus).HasDefaultValue(TipoStatus.S);
+                u.Property(cu => cu.TipoStatus).HasColumnName("CUSUTIPOSTATUS");
+                u.Property(cu => cu.TipoStatus).HasConversion(cu => cu.ToString(), cu => (TipoStatus)Enum.Parse(typeof(TipoStatus), cu));
+                u.Property(cu => cu.TipoStatus).HasDefaultValue(TipoStatus.S);
+
+                u.HasIndex(cu => cu.Email).IsUnique();
+            });
             #endregion
 
             #region Medico - TMEDIC
             modelBuilder.Entity<Medico>().ToTable("TMED");
 
-            modelBuilder.Entity<Medico>().Property(m => m.Id).HasColumnName("CMEDCRM");
-            modelBuilder.Entity<Medico>().Property(m => m.Id).ValueGeneratedNever();
-            modelBuilder.Entity<Medico>().HasIndex(m => m.Id).IsUnique();
-            
+            modelBuilder.Entity<Medico>(m =>
+            {
+                m.Property(cm => cm.Id).HasColumnName("CMEDID");
 
-            modelBuilder.Entity<Medico>().Property(m => m.Nome).HasColumnName("CMEDNOME");
-            modelBuilder.Entity<Medico>().Property(m => m.Nome).HasMaxLength(90);
-            modelBuilder.Entity<Medico>().Property(m => m.Nome).IsRequired();
+                m.Property(cm => cm.CRM).HasColumnName("CMEDCRM");
+                m.Property(cm => cm.CRM).HasColumnType("VARCHAR(10)");
+                m.Property(cm => cm.CRM).IsRequired();
 
-            modelBuilder.Entity<Medico>().Property(m => m.UF).HasColumnName("CMEDUF");
-            modelBuilder.Entity<Medico>().Property(m => m.UF).HasConversion(m => m.ToString(), m => (UF)Enum.Parse(typeof(UF), m));
-            modelBuilder.Entity<Medico>().Property(m => m.UF).IsRequired();
-            
-            modelBuilder.Entity<Medico>().Property(m => m.Profissao).HasColumnName("CMEDPROFISSAO");
-            modelBuilder.Entity<Medico>().Property(m => m.Profissao).HasMaxLength(90);
+                m.Property(cm => cm.Nome).HasColumnName("CMEDNOME");
+                m.Property(cm => cm.Nome).HasColumnType("VARCHAR(90)");
+                m.Property(cm => cm.Nome).IsRequired();
+
+                m.Property(cm => cm.UF).HasColumnName("CMEDUF");
+                m.Property(cm => cm.UF).HasConversion(cm => cm.ToString(), cm => (UF)Enum.Parse(typeof(UF), cm));
+                m.Property(cm => cm.UF).IsRequired();
+
+                m.Property(cm => cm.Profissao).HasColumnName("CMEDPROFISSAO");
+                m.Property(cm => cm.Profissao).HasColumnType("VARCHAR(90)");
+
+                m.Property(cm => cm.UsuarioId).HasColumnName("CMEDUSUID");
+                m.HasOne(cm => cm.Usuario).WithOne(u => u.Medico).HasForeignKey<Medico>(cm => cm.UsuarioId);
+                
+                m.HasIndex(cm => cm.CRM).IsUnique();
+            });            
             #endregion
         }
     }

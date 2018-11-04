@@ -187,10 +187,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BLL\UsuarioBLL.cs" />
+    <Compile Include="BLL\UFBLL.cs" />
+    <Compile Include="BLL\UsuarioMedicoBLL.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAO\EntidadeContext.cs" />
-    <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="DAO\UsuarioMedicoDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -198,13 +199,21 @@
     <Compile Include="Migrations\20181015014411_DatabaseInit.designer.cs">
       <DependentUpon>20181015014411_DatabaseInit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20181015015333_CreateTableUsuario.cs" />
-    <Compile Include="Migrations\20181015015333_CreateTableUsuario.designer.cs">
-      <DependentUpon>20181015015333_CreateTableUsuario.cs</DependentUpon>
+    <Compile Include="Migrations\20181103195235_CreateTableUsuario.cs" />
+    <Compile Include="Migrations\20181103195235_CreateTableUsuario.designer.cs">
+      <DependentUpon>20181103195235_CreateTableUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20181021003530_CreateTableMedico.cs" />
-    <Compile Include="Migrations\20181021003530_CreateTableMedico.designer.cs">
-      <DependentUpon>20181021003530_CreateTableMedico.cs</DependentUpon>
+    <Compile Include="Migrations\20181103200102_CreateTableMedico.cs" />
+    <Compile Include="Migrations\20181103200102_CreateTableMedico.designer.cs">
+      <DependentUpon>20181103200102_CreateTableMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20181104032618_RelationUsuarioInMedico.cs" />
+    <Compile Include="Migrations\20181104032618_RelationUsuarioInMedico.designer.cs">
+      <DependentUpon>20181104032618_RelationUsuarioInMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20181104032841_CreateIndexInUsuario.cs" />
+    <Compile Include="Migrations\20181104032841_CreateIndexInUsuario.designer.cs">
+      <DependentUpon>20181104032841_CreateIndexInUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\EntidadeContextModelSnapshot.cs" />
     <Compile Include="Models\Medico.cs" />
@@ -216,6 +225,8 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

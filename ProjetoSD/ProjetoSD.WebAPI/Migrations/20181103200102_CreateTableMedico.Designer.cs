@@ -10,7 +10,7 @@ using ProjetoSD.WebAPI.Models;
 namespace ProjetoSD.WebAPI.Migrations
 {
     [DbContext(typeof(EntidadeContext))]
-    [Migration("20181021003530_CreateTableMedico")]
+    [Migration("20181103200102_CreateTableMedico")]
     partial class CreateTableMedico
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,16 +24,23 @@ namespace ProjetoSD.WebAPI.Migrations
             modelBuilder.Entity("ProjetoSD.WebAPI.Models.Medico", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnName("CMEDCRM");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("CMEDID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CRM")
+                        .IsRequired()
+                        .HasColumnName("CMEDCRM")
+                        .HasColumnType("VARCHAR(10)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnName("CMEDNOME")
-                        .HasMaxLength(90);
+                        .HasColumnType("VARCHAR(90)");
 
                     b.Property<string>("Profissao")
                         .HasColumnName("CMEDPROFISSAO")
-                        .HasMaxLength(90);
+                        .HasColumnType("VARCHAR(90)");
 
                     b.Property<string>("UF")
                         .IsRequired()
@@ -41,7 +48,7 @@ namespace ProjetoSD.WebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Id")
+                    b.HasIndex("CRM")
                         .IsUnique();
 
                     b.ToTable("TMED");
@@ -57,12 +64,12 @@ namespace ProjetoSD.WebAPI.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnName("CUSUEMAIL")
-                        .HasMaxLength(60);
+                        .HasColumnType("VARCHAR(60)");
 
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnName("CUSUSENHA")
-                        .HasMaxLength(25);
+                        .HasColumnType("VARCHAR(25)");
 
                     b.Property<string>("TipoStatus")
                         .IsRequired()

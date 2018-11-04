@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoSD.WebAPI.DAO;
 using ProjetoSD.WebAPI.Models;
@@ -9,9 +10,10 @@ using ProjetoSD.WebAPI.Models;
 namespace ProjetoSD.WebAPI.Migrations
 {
     [DbContext(typeof(EntidadeContext))]
-    partial class EntidadeContextModelSnapshot : ModelSnapshot
+    [Migration("20181104032618_RelationUsuarioInMedico")]
+    partial class RelationUsuarioInMedico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,9 +84,6 @@ namespace ProjetoSD.WebAPI.Migrations
                         .HasDefaultValue("S");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
 
                     b.ToTable("TUSU");
                 });
