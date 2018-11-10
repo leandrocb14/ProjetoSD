@@ -15,6 +15,7 @@ Password=@Leandro123;");
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Medico> Medicos { get; set; }
+        public DbSet<Doenca> Doencas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,11 +24,11 @@ Password=@Leandro123;");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            #region Usuario - TUSU
-            modelBuilder.Entity<Usuario>().ToTable("TUSU");
-
+            #region Usuario - TUSU          
             modelBuilder.Entity<Usuario>(u =>
             {
+                u.ToTable("TUSU");
+
                 u.Property(cu => cu.Id).HasColumnName("CUSUID");
 
                 u.Property(cu => cu.Email).HasColumnName("CUSUEMAIL");
@@ -70,10 +71,35 @@ Password=@Leandro123;");
 
                 m.Property(cm => cm.UsuarioId).HasColumnName("CMEDUSUID");
                 m.HasOne(cm => cm.Usuario).WithOne(u => u.Medico).HasForeignKey<Medico>(cm => cm.UsuarioId);
-                
+
                 m.HasIndex(cm => cm.CRM).IsUnique();
-            });            
+            });
             #endregion
+
+            #region Doenca - TDOE          
+            modelBuilder.Entity<Doenca>(d =>
+            {
+                d.ToTable("TDOE");
+
+                d.Property(cd => cd.Id).HasColumnName("CDOEID");
+
+                d.Property(cd => cd.Nome).HasColumnName("CDOENOME");
+                d.Property(cd => cd.Nome).HasColumnType("VARCHAR(30)");
+                d.Property(cd => cd.Nome).IsRequired();
+
+                d.Property(cd => cd.Descricao).HasColumnName("CDOEDESC");
+                d.Property(cd => cd.Descricao).HasColumnType("VARCHAR(500)");
+                d.Property(cd => cd.Descricao).IsRequired();
+
+                d.Property(cd => cd.Profilaxia).HasColumnName("CDOEPROFLAXIA");
+                d.Property(cd => cd.Profilaxia).HasColumnType("VARCHAR(500)");
+                d.Property(cd => cd.Profilaxia).IsRequired();
+
+                d.Property(cd => cd.TipoStatus).HasColumnName("CDOETIPOSTATUS");
+                d.Property(cd => cd.TipoStatus).HasConversion(cd => cd.ToString(), cd => (TipoStatus)Enum.Parse(typeof(TipoStatus), cd));
+                d.Property(cd => cd.TipoStatus).HasDefaultValue(TipoStatus.S);
+            });            
+            #endregion            
         }
     }
 }

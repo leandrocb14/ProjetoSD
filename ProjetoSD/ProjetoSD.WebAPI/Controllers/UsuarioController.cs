@@ -46,5 +46,19 @@ namespace ProjetoSD.WebAPI.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
+        [HttpPost]
+        public HttpResponseMessage PostUPDTUsuario(int? id, string novaSenha)
+        {
+            try
+            {
+                this.UsuarioBLL.AtualizaSenha(id, novaSenha);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
     }
 }

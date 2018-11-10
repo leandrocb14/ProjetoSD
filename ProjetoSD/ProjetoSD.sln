@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoSD.WebAPI", "Projeto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoSD.Mobile.Android", "ProjetoSD.Mobile\ProjetoSD.Mobile.Android\ProjetoSD.Mobile.Android.csproj", "{3C42655B-FB6F-42E7-9CAF-DB36E41FB09B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoSD.Mobile", "ProjetoSD.Mobile\ProjetoSD.Mobile\ProjetoSD.Mobile.csproj", "{9849FF24-4468-4C56-BABF-D966CB55B342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjetoSD.Mobile", "ProjetoSD.Mobile\ProjetoSD.Mobile\ProjetoSD.Mobile.csproj", "{9849FF24-4468-4C56-BABF-D966CB55B342}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,5 +35,17 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84911777-2C51-4D58-B4CE-6DB5B31EC58D}
+	EndGlobalSection
+	GlobalSection(AutomaticVersions) = postSolution
+		UpdateAssemblyVersion.Release|Any CPU = True
+		UpdateAssemblyFileVersion.Release|Any CPU = True
+		UpdateAssemblyInfoVersion.Release|Any CPU = True
+		ShouldCreateLogs.Release|Any CPU = True
+		AssemblyVersionSettings.Release|Any CPU = None.None.None.Increment
+		AssemblyFileVersionSettings.Release|Any CPU = None.None.None.Increment
+		AssemblyInfoVersionSettings.Release|Any CPU = None.None.None.Increment
+		UpdatePackageVersion.Release|Any CPU = False
+		AssemblyInfoVersionType.Release|Any CPU = SettingsVersion
+		InheritWinAppVersionFrom.Release|Any CPU = None
 	EndGlobalSection
 EndGlobal

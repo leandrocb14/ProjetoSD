@@ -42,8 +42,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>None.None.None.Increment</AssemblyVersionSettings>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <AssemblyFileVersionSettings>None.None.None.Increment</AssemblyFileVersionSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CryptSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CryptSharpOfficial.2.1.0.0\lib\CryptSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.EntityFrameworkCore, Version=2.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.1.4\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
@@ -187,9 +200,13 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BLL\DoencaBLL.cs" />
     <Compile Include="BLL\UFBLL.cs" />
     <Compile Include="BLL\UsuarioMedicoBLL.cs" />
+    <Compile Include="BLL\ValidacaoBLL.cs" />
+    <Compile Include="Controllers\DoencaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="DAO\DoencaDAO.cs" />
     <Compile Include="DAO\EntidadeContext.cs" />
     <Compile Include="DAO\UsuarioMedicoDAO.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,7 +232,12 @@
     <Compile Include="Migrations\20181104032841_CreateIndexInUsuario.designer.cs">
       <DependentUpon>20181104032841_CreateIndexInUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20181110030124_CreateTableDoenca.cs" />
+    <Compile Include="Migrations\20181110030124_CreateTableDoenca.designer.cs">
+      <DependentUpon>20181110030124_CreateTableDoenca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\EntidadeContextModelSnapshot.cs" />
+    <Compile Include="Models\Doenca.cs" />
     <Compile Include="Models\Medico.cs" />
     <Compile Include="Models\TipoStatus.cs" />
     <Compile Include="Models\UF.cs" />
@@ -236,6 +258,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Doenca\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

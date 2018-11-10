@@ -58,6 +58,20 @@ namespace ProjetoSD.WebAPI.DAO
             this.EntidadeContext.SaveChanges();
         }
 
+        public void AtualizaSenha(int? id, string novaSenha)
+        {
+            var query = from u in EntidadeContext.Usuarios
+                        where u.Id.Equals(id)
+                        select u;
+            if (query == null)
+            {
+                throw new ArgumentException("Não existe um usuário com esse id!");
+            }
+            Usuario usuario = query.FirstOrDefault();
+            usuario.Senha = novaSenha;
+            EntidadeContext.SaveChanges();
+        }
+
         /// <summary>
         /// Verifica se email já é cadastrado.
         /// </summary>
@@ -67,7 +81,7 @@ namespace ProjetoSD.WebAPI.DAO
         {
             var query = from q in EntidadeContext.Usuarios
                         where q.Email.Equals(email)
-                        select q;
+                        select q;            
             if (query.FirstOrDefault() != null)
             {
                 throw new ArgumentException("O email já está cadastrado para um usuário!");

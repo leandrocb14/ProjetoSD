@@ -7,14 +7,14 @@ using System.Web;
 
 namespace ProjetoSD.WebAPI.BLL
 {
-    public class UsuarioMedicoBLL
+    public class UsuarioMedicoBLL : ValidacaoBLL
     {
 
-        private UsuarioMedicoDAO UsuarioDAO;
+        private UsuarioMedicoDAO UsuarioDAO;        
 
         public UsuarioMedicoBLL()
         {
-            this.UsuarioDAO = new UsuarioMedicoDAO();
+            this.UsuarioDAO = new UsuarioMedicoDAO();            
         }
 
         /// <summary>
@@ -47,18 +47,11 @@ namespace ProjetoSD.WebAPI.BLL
             this.UsuarioDAO.CadastraUsuario(crm, nome, uF, profissao, email, senha);
         }
 
-        /// <summary>
-        /// Valida <paramref name="valorParametro"/> se é nulo ou vazio.
-        /// </summary>
-        /// <exception cref="FormatException">Exception lançada quando o parâmetro <paramref name="valorParametro"/> for nulo ou vazio.</exception>
-        /// <param name="valorParametro">Representa o valor do parâmetro.</param>
-        /// <param name="nomeParametro">Representa o nome do parâmetro.</param>
-        private void ValidaParametroEmBrancoOuVazio(string valorParametro, string nomeParametro)
+        public void AtualizaSenha(int? id, string novaSenha)
         {
-            if (string.IsNullOrEmpty(valorParametro))
-            {
-                throw new FormatException(string.Format($"O parâmetro {nomeParametro} é de preenchimento obrigatório"));
-            }
-        }
+            ValidaParametroEmBrancoOuVazio(novaSenha, "novaSenha");
+            ValidaParametroEmBrancoOuVazio(Convert.ToString(id), "id");           
+            this.UsuarioDAO.AtualizaSenha(id, novaSenha);
+        }        
     }
 }
